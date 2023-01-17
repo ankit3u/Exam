@@ -20,7 +20,7 @@
 
         <div class="col-my-4 mx-4">
           <label for="validationCustom02" class="form-label">Description</label>
-          <input type="number" name="age" id="" value="Desc">
+          <input type="text" name="desc" id="" placeholder="Desc">
         </div><br>
 
         <div class="col-my-4">
@@ -30,7 +30,7 @@
         
         <div class="col-12">
           <button class="btn btn-primary" type="submit">ADD</button>
-          <a href="/show"> <button class="btn btn-primary" type="button">SHOW</button>
+          <a href="{% url 'dashboard' %}"> <button class="btn btn-primary" type="button">SHOW</button>
         </div>
 
     </form>
