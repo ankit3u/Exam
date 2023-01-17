@@ -46,14 +46,10 @@ def LogoutPage(request):
     logout(request)
     return redirect('login')
 
-@login_required(login_url="login")
 def dashboard(request):
-    if request.user.is_authenticated:
-       prod=Product.objects.all()
-       return render(request,'dashboard.htm',{'prod':prod})
-
-    else:
-        return HttpResponseRedirect('/login/')
+    prod=Product.objects.all()
+    return render(request,'dashboard.html',{'prod':prod})
+    
 
 @login_required(login_url="login")
 def add_product(request):
@@ -75,14 +71,11 @@ def add_product(request):
 @login_required(login_url="login")
 def delete(request,id):
     if request.user.is_authenticated:
-
-
-        a = Product.objects.get(id=id)
-        a.delete()
+        pi = Product.objects.get(pk=id)
+        pi.delete()
         return redirect('dashboard')
     else:
         return HttpResponseRedirect('/login/')
-
 @login_required(login_url="login")
 def update(request,id):
     if request.user.is_authenticated:
